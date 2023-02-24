@@ -1,0 +1,87 @@
+<br>
+<br>
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Ajouter  Aide</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="">Nom </label>    
+            <div class=" col-sm-3 "><input type="text" class="form-control" formControlName="Nom"
+                                           [(ngModel)]="aides.nom"></div>
+        
+            <div *ngIf="Nom.invalid && Nom.touched" style="color: rgba(4, 0, 0, 0.396);">
+              * Nom de l Aide est obligatoire et<br/>
+              * elle doit contenir au moins 2 caractéres
+             
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="">Non de Responsable</label>    
+              <div class=" col-sm-3 "><input type="text" class="form-control" formControlName="NonResponsable"
+                [(ngModel)]="aides.nonResponsable"></div>
+          
+              <div *ngIf="NonResponsable.invalid && NonResponsable.touched" style="color: rgba(143, 35, 35, 0.396);">
+               * Non de Responsable est obligatoire et<br/>
+               * il doit contenir au moins 2 caractéres
+              </div> 
+            </div>
+            <div class="form-group">
+                <label for="">Adresse de donneur</label>    
+                    <div class=" col-sm-3 "><input type="text" class="form-control" formControlName="AdresseDonneur"
+                      [(ngModel)]="aides.adresseDonneur"></div>
+                
+                    <div *ngIf="AdresseDonneur.invalid && AdresseDonneur.touched" style="color: rgba(143, 35, 35, 0.396);">
+                     * Adresse de donneur est obligatoire et<br/>
+                     * il doit contenir au moins 3 caractéres
+                    </div> 
+                  </div>
+                  <div class="form-group">
+                    <label for="">Quantite</label>    
+                        <div class=" col-sm-3 "><input type="text" class="form-control" formControlName="Quantite"
+                                                       [(ngModel)]="aides.quantite"></div>
+                    
+                       <div *ngIf="Quantite.invalid && Quantite.touched" style="color:rgb(96, 61, 61);">
+                         *Quantite est obligatoire et<br/>
+                         *il doit contenir que des chiffres
+                        </div> 
+                        <div class="form-group">
+                            <label for="">Date</label>    
+                                <div class=" col-sm-3 "><input type="date" class="form-control" formControlName="date"
+                                  [(ngModel)]="aides.date"></div>
+                        </div>
+                    </div>
+              <div class="form-group">
+                <label for="">Type</label>    
+            <select [(ngModel)]="aides.type"  formControlName="type" type="text" class="form-control" id="type">
+                     <option value="">--Please choose an option--</option>
+                     <option value="Matelas">Matelas</option>
+                     <option value="chaise">chaise</option>
+                     <option value="couverture">couverture</option>
+                     <option value="produit">produit</option>
+                     <option value="alimentaire">alimentaire</option>
+                     <option value="médicaments">médicaments</option>
+                     <option value="vetements">vetements</option>
+                   
+            </select>
+            <div class="alert alert-danger" role="alert" *ngIf="type.invalid">
+              Type est obligatoire
+          </div>
+            </div>
+            <div class="form-group">
+              <label for="">Stock:</label>    
+                <div class=" col-sm-3 "><input type="text"  class="form-control" formControlName="idStock"
+                 [(ngModel)]="aides.Stock.idStock"></div>
+            </div>
+        
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Ajouter</button>
+              </div>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+

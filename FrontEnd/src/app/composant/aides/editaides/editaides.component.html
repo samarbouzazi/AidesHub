@@ -1,0 +1,78 @@
+<br>
+<br>
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Modifier Aide</h3>
+      </div>
+      <div class="card-body">
+        <form action="">
+          <div class="form-group">
+            <label for="">Nom:</label>
+          <td><input [(ngModel)]="aides.nom" name="nom" type="text" required  minlength="3" pattern="[a-zA-Z]*" class="form-control" #pre="ngModel">
+            <div [hidden]="pre.valid"> 
+                Nom obligatoire
+             et il doit contenir au moins 3 caractéres
+          </div></td>
+          </div>
+
+          <div class="form-group">
+            <label for="">NonResponsable:</label>
+         <td> <input [(ngModel)]="aides.nonResponsable" name="nonResponsable" type="text" required  minlength="3" pattern="[a-zA-Z]*"  class="form-control" #nr="ngModel">
+            <div [hidden]="nr.valid"> 
+                NonResponsable obligatoire
+             et il doit contenir au moins 3 caractéres
+          </div></td>
+          </div>
+          <div class="form-group">
+            <label for="">AdresseDonneur:</label>
+         <td> <input [(ngModel)]="aides.adresseDonneur" name="adresseDonneur" type="text" required  minlength="3" pattern="[a-zA-Z]*"  class="form-control" #add="ngModel">
+            <div [hidden]="add.valid"> 
+                AdresseDonneur obligatoire
+             et il doit contenir au moins 3 caractéres
+          </div></td>
+          </div>
+          <div class="form-group">
+            <label for="">Quantite:</label>
+         <td> <input [(ngModel)]="aides.quantite" name="quantite" type="text" required  pattern="[0-9]*"  class="form-control" #q="ngModel">
+            <div [hidden]="q.valid"> 
+                La Quantite est obligatoire
+             et il doit contenir que des chiffres
+          </div></td>
+          </div>
+          <div class="form-group">
+            <label for="">Dte:</label>
+         <td> <input [(ngModel)]="aides.date" name="date" type="date" required    class="form-control" #d="ngModel">
+            <div [hidden]="d.valid"> 
+              
+          </div></td>
+          </div>
+          <div class="form-group">
+            <label for="">Option:</label>
+          <td> <select pattern="Customer" [(ngModel)]="aides.type" #typ="ngModel" name="type" type="text" class="form-control" id="type">
+            <option value="">--Please choose an option--</option>
+            <option value="Matelas">Matelas</option>
+            <option value="chaise">chaise</option>
+            <option value="couverture">couverture</option>
+            <option value="produit">produit</option>
+            <option value="alimentaire">alimentaire</option>
+            <option value="médicaments">médicaments</option>
+            <option value="vetements">vetements</option>
+            </select>
+            <div *ngIf="typ.valid">
+              Il faut choisir le type d'aide
+           </div></td> 
+          </div>
+          <div class="form-group">
+            <label for=""> Stock:</label>
+         <td>  <input [(ngModel)]="aides.Stock.idStock" #st="ngModel" name="idStock"   required type="text" class="form-control">
+            <div *ngIf="st.invalid">
+             stock required
+           </div></td> 
+          </div>
+      
+          <button (click)="Actualizar(aides)" class="btn btn-danger">Modifier</button>
+        </form>
+      </div>
+    </div>
+  </div>
