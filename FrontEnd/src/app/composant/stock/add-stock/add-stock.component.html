@@ -1,0 +1,28 @@
+<br>
+<br>
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Ajouter Stock</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="">Lieu</label>    
+            <div class=" col-sm-3 "><input type="text" class="form-control" formControlName="lieu"
+                                           [(ngModel)]="Stock.lieu"></div>
+        
+            <div *ngIf="lieu.invalid && lieu.touched" style="color: rgb(67, 10, 10);">
+              *lieu est obligatoire et<br/>
+              *il doit contenir au moins 2 caractéres
+            </div>
+        </div>
+        <div class="form-group">           
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Ajouter</button>
+              </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

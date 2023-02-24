@@ -1,0 +1,25 @@
+<br>
+<br>
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Modifier Stock</h3>
+      </div>
+      <div class="card-body">
+        <form action="">
+          <div class="form-group">
+            <label for="">Lieu:</label>
+            <td><input [(ngModel)]="Stock.lieu" name="lieu" type="text" required  minlength="3" pattern="[a-zA-Z]*" class="form-control" #nomu="ngModel">
+          
+            <div [hidden]="nomu.valid"> 
+                lieu obligatoire
+             et il doit contenir au moins 3 caractéres
+          </div></td>
+          </div>
+      
+           <button (click)="Actualizar(Stock)" class="btn btn-danger">Modifier</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
